@@ -90,3 +90,79 @@ funcionario = {
   }
 }
 console.log(funcionario);
+
+
+/**
+ * Alias: usado para definir um tipo personalizado
+ */
+ type Funcionario = {
+  supervisores: Array<string>,
+  baterPonto: (horario: number) => string 
+}
+
+//usando o Alias criado
+let funcionario2: Funcionario = {
+  supervisores: ["Fulano", "Siclano"],
+  baterPonto(horario: number) {
+    return "string"
+  }
+};
+
+
+/**
+ * UNION TYPES: Usado para definir variaveis com mais de um tipo
+ */
+let nota: number | string  = 10; // implicitamente nota deve ser um número;
+console.log(`Minha nota é: ${nota}`);
+nota = '10' //Usando variavel como string
+// nota = true - cenario que daria erro, pois pode "nota" pode ser apenas string ou number
+
+
+/**
+ * Never: tipos para função que não possui um ponto final, ou uma função com laço infinito ou com um erro
+ */
+function infinita(): never {
+  while(true) {
+
+  }
+}
+function falha(mensagem: string): never {
+  throw new Error(mensagem);
+}
+
+/**
+ * Tipo NULL: util para ser usado com UNION TYPE para permitir um valor vazio para a variavel
+ */
+type Contato = {
+  nome: string,
+  tel1: number,
+  tel2: number | null //permite que o tel2 não seja passado
+}
+let contato: Contato = {
+  nome: "Fulano",
+  tel1: 938823,
+  tel2: null
+}
+
+// Desafios
+type ContaBancaria = {
+  saldo: number,
+  depositar: (valor: number) => void
+}
+type Correntista = {
+  nome: string,
+  contaBancaria: ContaBancaria,
+  contatos: Array<string>
+}
+
+let contaBancaria: ContaBancaria = {
+  saldo: 3456,
+  depositar(saldo: number) {
+    this.saldo += saldo;
+  }
+}
+let correntista: Correntista = {
+  nome: "Ana Silva",
+  contaBancaria: contaBancaria,
+  contatos: ["4645654645", "43645646"]
+}

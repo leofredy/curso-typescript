@@ -78,3 +78,44 @@ funcionario = {
     }
 };
 console.log(funcionario);
+//usando o Alias criado
+let funcionario2 = {
+    supervisores: ["Fulano", "Siclano"],
+    baterPonto(horario) {
+        return "string";
+    }
+};
+/**
+ * UNION TYPES: Usado para definir variaveis com mais de um tipo
+ */
+let nota = 10; // implicitamente nota deve ser um número;
+console.log(`Minha nota é: ${nota}`);
+nota = '10'; //Usando variavel como string
+// nota = true - cenario que daria erro, pois pode "nota" pode ser apenas string ou number
+/**
+ * Never: tipos para função que não possui um ponto final, ou uma função com laço infinito ou com um erro
+ */
+function infinita() {
+    while (true) {
+    }
+}
+function falha(mensagem) {
+    throw new Error(mensagem);
+}
+let contato = {
+    nome: "Fulano",
+    tel1: 938823,
+    tel2: null
+};
+let contaBancaria = {
+    saldo: 3456,
+    depositar(saldo) {
+        this.saldo += saldo;
+    }
+};
+let correntista = {
+    nome: "Ana Silva",
+    contaBancaria: contaBancaria,
+    contatos: ["4645654645", "43645646"]
+};
+//# sourceMappingURL=tipos.js.map

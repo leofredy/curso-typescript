@@ -2,3 +2,4 @@
 let myString: string = "leonardo";
 // myString = 123;
 console.log(myString);
+

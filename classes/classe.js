@@ -98,4 +98,47 @@ const f40 = new Ferrari("F40", 320);
 for (let i = 0; i < 300; i++) {
     console.log(f40.acelerar());
 }
+/************* MEMBROS ESTÁTICOS *************/
+class ImprimirNome {
+    static imprimir(nome) {
+        console.log(nome);
+    }
+}
+ImprimirNome.imprimir("Fulano será impresso");
+/************* CLASSE ABSTRATA *************/
+class Calculo {
+    constructor() {
+        this.resultado = 0;
+    }
+    getResultado() {
+        return this.resultado;
+    }
+}
+class Soma extends Calculo {
+    executar(...valores) {
+        this.resultado = valores.reduce((total, atual) => total + atual);
+    }
+}
+class Multiplicacao extends Calculo {
+    executar(...valores) {
+        this.resultado = valores.reduce((total, atual) => total * atual);
+    }
+}
+let c1 = new Soma(); //Ex. de Polimorfismo, Calculo (tipo mais generico) associa a tipos mais especificos
+c1.executar(1, 2, 3, 4, 5);
+console.log(c1.getResultado());
+c1 = new Multiplicacao();
+c1.executar(1, 2, 3, 4, 5);
+console.log(c1.getResultado());
+/****** ATRIBUTOS SOMENTE LEITURA ******/
+class Aviao {
+    constructor(modelo) {
+        this._modelo = modelo;
+    }
+    get modelo() {
+        return this._modelo;
+    }
+}
+const Av1 = new Aviao("tu-114");
+console.log(Av1.modelo);
 //# sourceMappingURL=classe.js.map

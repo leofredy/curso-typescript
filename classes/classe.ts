@@ -121,6 +121,23 @@ for(let i = 0; i < 300; i++) {
   console.log(f40.acelerar());
 }
 
+/******************** Getters & Setters ********************/
+class Pessoa {
+  private _nome: string = "";
+
+  get nome(): string {
+    return this._nome;
+  }
+
+  set nome(nome: string) {
+    this._nome = nome;
+  }
+}
+
+const pessoa1 = new Pessoa;
+pessoa1.nome = "Fulano";
+console.log(pessoa1.nome);
+
 
 /************* MEMBROS ESTÁTICOS *************/
 class ImprimirNome {

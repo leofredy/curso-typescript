@@ -1,4 +1,10 @@
 "use strict";
+//noEmitOnError: declarado como true não permite a criação do arquivo .js quando acontecer o erro;
+let myString = "leonardo";
+// myString = 123;
+console.log(myString);
+const nome = "Teste TS Brabu fio!";
+console.log(nome);
 //tipo implicito
 let teste = "leozeraa";
 console.log(teste);
@@ -120,4 +126,4 @@ let correntista = {
     contaBancaria: contaBancaria,
     contatos: ["4645654645", "43645646"]
 };
-//# sourceMappingURL=tipos.js.map
+//# sourceMappingURL=app.js.map
